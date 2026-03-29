@@ -4,6 +4,7 @@ const cors = require('cors');
 const dns = require('node:dns');
 const bodyParser = require('body-parser');
 const { count } = require('node:console');
+const { dirname } = require('node:path');
 const app = express();
 
 // Basic Configuration
@@ -15,7 +16,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-app.use('/public', express.static(`${process.cwd()}/public`));
+app.use('/public', express.static(process.cwd() + "/public"));
 
 
 app.get('/', function(req, res) {
